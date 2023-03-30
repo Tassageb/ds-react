@@ -14,6 +14,7 @@ root.render(
         <Navigation/>
         <Routes>
             <Route path={"/"} element={<Home/>}/>
+            <Route path={"/users"} element={<h1>user</h1>}/>
         </Routes>
     </BrowserRouter>
   </React.StrictMode>

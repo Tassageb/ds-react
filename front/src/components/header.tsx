@@ -1,7 +1,9 @@
+import {Link} from "react-router-dom";
+
 export const Navigation = () => {
     return <nav>
         <ul>
-            <li>Coucou</li>
+            <li><Link to={"/users"}>Coucou</Link></li>
         </ul>
     </nav>
 }
