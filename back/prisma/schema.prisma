@@ -1,27 +1,44 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-//lancer la migration avec npx prisma migrate dev
+// lancer la migration avec npx prisma migrate dev
 
 generator client {
-    provider = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 datasource db {
-    provider = "sqlite"
-    url      = "file:./dev.db"
+  provider = "sqlite"
+  url      = "file:./dev.db"
 }
 
-model User {
-    id  Int @id @default(autoincrement())
-    name String
-    password String
-    posts Post[]
+model Quiz {
+  id        Int        @id @default(autoincrement())
+  name      String
+  questions Question[]
+  games     Game[]
 }
 
-model Post {
-    id Int @id @default(autoincrement())
-    desc String
-    user User @relation(fields: [userId], references: [id])
-    userId Int
+model Question {
+  id      Int      @id @default(autoincrement())
+  name    String
+  choices Choice[]
+  valid   Int
+  quiz    Quiz     @relation(fields: [quizId], references: [id])
+  quizId  Int
+}
+
+model Choice {
+  id         Int      @id @default(autoincrement())
+  name       String
+  question   Question @relation(fields: [questionId], references: [id])
+  questionId Int
+}
+
+model Game {
+  id     Int    @id @default(autoincrement())
+  pseudo String
+  score  Int
+  quiz   Quiz   @relation(fields: [quizId], references: [id])
+  quizId Int
 }

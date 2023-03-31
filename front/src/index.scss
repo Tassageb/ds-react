@@ -1,0 +1,142 @@
+html {
+  font-family: arial;
+
+  --primary-color : #2b8f7d;
+  --second-color :  #71cb8f;
+  --second-color-fade : #88dea3
+}
+
+body {
+  margin: 0 0 0 15em;
+  padding: 3em;
+}
+
+
+nav{
+  position: absolute;
+
+  padding: 3em;
+  width: 9em;
+
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  background-color: var(--primary-color);
+
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+
+  &>div{
+    display: flex;
+    flex-direction: column;
+    gap: .3em;
+  }
+
+  a{
+    color: white;
+    padding: .5em;
+    border-radius: .7em;
+    text-decoration: none;
+
+    &.active{
+      background-color: var(--second-color)
+    }
+  }
+}
+
+p, h1, h2, h3, h4{
+  margin: 0;
+}
+
+.box{
+  padding: 1.2em;
+  border-radius: 1.3em;
+  margin: 1em 0;
+  color: white;
+  background-color: var(--primary-color);
+}
+
+button{
+  background-color: var(--second-color);
+  padding: .5em;
+  border-radius: .7em;
+  color : white;
+  border : 2px solid var(--second-color);
+  cursor : pointer;
+  margin: .2em;
+
+  &:hover{
+    background-color: var(--second-color-fade);
+    color : white;
+  }
+}
+
+input[type=text]{
+  padding: .3em;
+  border: none;
+  border-radius: .3em;
+  color: var(--primary-color);
+}
+
+.new-question{
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+
+  .utils{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+}
+
+.quiz-list{
+  margin: 1em;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+
+  .quiz{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: .3em;
+
+    cursor: pointer;
+
+    gap: 1em;
+
+    h2{
+      text-transform: uppercase;
+    }
+
+    &.selected{
+      color: var(--primary-color);
+      background-color: white;
+    }
+  }
+}
+
+.play{
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 80%;
+  height: 80%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  padding: 2em;
+  color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 3em;
+  background-color: white;
+}

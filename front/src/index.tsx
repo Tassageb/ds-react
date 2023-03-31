@@ -1,8 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import {Home} from "./pages/home/page";
+
 import {Navigation} from "./components/header";
+
+import {CreateQuiz} from "./pages/create/page";
+import {Home} from "./pages/home/page";
+
+import './index.scss'
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
@@ -12,10 +18,12 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
         <Navigation/>
-        <Routes>
-            <Route path={"/"} element={<Home/>}/>
-            <Route path={"/users"} element={<h1>user</h1>}/>
-        </Routes>
+        <main>
+            <Routes>
+                <Route path={"/"} element={<Home/>}/>
+                <Route path={"/create"} element={<CreateQuiz/>}/>
+            </Routes>
+        </main>
     </BrowserRouter>
   </React.StrictMode>
 );
